@@ -12,6 +12,7 @@ export default function CustomTooltip({ active, payload, label }) {
   if (!active || !payload || payload.length === 0) return null;
 
   const {
+    temp,      
     temp_min,
     temp_max,
     wind_speed,
@@ -31,6 +32,7 @@ export default function CustomTooltip({ active, payload, label }) {
       }}
     >
       <strong>{label}</strong>
+      <div>🌡️ {temp}°C</div>
       <div>min {temp_min} ° ↕️ max {temp_max} °</div>
       <div> 🍃 Wind speed: {wind_speed} km/h</div>
       <div> 🌧️ Chance of precipitation: {Math.round(pop * 100)}%</div>
