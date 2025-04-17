@@ -4,8 +4,11 @@ const BASE_URL =
 
 export async function fetchWeeklyForecast(lat, lon) {
   const apiKey = process.env.REACT_APP_OPENWEATHER_KEY;
+  console.log("MY API KEY:", apiKey); // בדיקה
+
   // sent api request to openweathermap api with lat and lon and get the forecast data
   const url = `${BASE_URL}&lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  
   const response = await fetch(url);
 
   if (!response.ok) {
