@@ -91,7 +91,7 @@ export default function WeatherChart({ data }) {
             value="Date"
             position="insideBottom"
             dx={0}
-            dy={5}
+            dy={10}
             style={{
               fill: theme.palette.text.secondary,
               fontSize: 16,
