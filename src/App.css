@@ -1,0 +1,14 @@
+html,
+body {
+  height: 47%;
+  margin: 0;
+}
+
+body {
+    background-image: url("https://www.picshare.co.il/m_pictures/img49130.jpg");
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    margin: 0;
+  }
+  
