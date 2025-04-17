@@ -1,5 +1,8 @@
-//this is the forecast view component, it shows the forecast for the selected city
-//it uses the city selector component to select the city and the weather chart component to show the forecast
+/**
+  this component shows the forecast for the selected city
+  it uses the city selector component to select the city and the weather chart component to show the forecast
+*/
+
 import React, { useState, useEffect } from "react";
 import CitySelector from "./CitySelector";
 import WeatherChart from "./WeatherChart";

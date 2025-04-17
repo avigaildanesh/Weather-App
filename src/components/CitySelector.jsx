@@ -1,5 +1,6 @@
-//let the user select a city from the list and pass the selected city to the parent component (forecastView.jsx) 
-// using the onSelect function
+/*
+ let the user select a city from the list and pass the selected city to the parent component (forecastView.jsx) 
+*/
 import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 import { CITIES } from "../utils/cities";
@@ -16,7 +17,7 @@ export default function CitySelector({ onSelect }) {
       onChange={(_, newVal) => {
         setSelectedCity(newVal); // set the selected city to the new value
         if (newVal) onSelect(newVal); // call the onSelect function with the new value
-        // it will will do the function that passed from forecastView.jsx
+        // it will do the function that passed from forecastView.jsx
         // (and after that forecastView will fetch the forecast)
       }}
       renderInput={(params) => (

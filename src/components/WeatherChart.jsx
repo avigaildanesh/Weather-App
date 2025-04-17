@@ -1,4 +1,8 @@
-// src/components/WeatherChart.jsx
+/*
+  component that shows the weather chart for the next 7 days
+  show the bar chart or line chart depending on the state of the button
+  holding tooltips for the chart, showing dates, icons buttons and the chart itself
+*/
 import React, { useState } from "react";
 import colors from "../theme/colors";
 import {
@@ -16,8 +20,8 @@ import {
 import { Box, Button, useTheme } from "@mui/material";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
+import DateWithIcons from "./DateWithIcons";
 import CustomTooltip from "./CustomTooltip";
-import IconRow from "./IconRow";
 
 export default function WeatherChart({ data }) {
   const theme = useTheme();
@@ -71,17 +75,23 @@ export default function WeatherChart({ data }) {
         margin={{ top: 30, right: 30, bottom: 5, left: 10 }}
       >
         <CartesianGrid strokeDasharray="3 3" stroke={colors.chartGrid} /> {/*grid lines inside the chart*/}
-
         <XAxis
           dataKey="date"
-          tick={{ fontSize: 12, dx: 20, dy: 8 }}
-          textAnchor="end"
-          height={50}
+          height={80}
+          tick={(props) => (
+            <DateWithIcons
+              {...props}
+              chartData={chartData}
+              colors={colors}
+            />
+          )}
         >
+
           <Label
             value="Date"
             position="insideBottom"
-            dx={-10}
+            dx={0}
+            dy={5}
             style={{
               fill: theme.palette.text.secondary,
               fontSize: 16,
@@ -133,9 +143,12 @@ export default function WeatherChart({ data }) {
         {renderChart(showBar)}
       </ResponsiveContainer>
       {/* show the icons below the chart */}
-      <IconRow data={chartData} />
-      <Box sx={{ textAlign: "center", mt: 6 }}>
-        {/* button to toggle between line and bar chart */}
+      <Box
+        sx={{
+          mt: 3, //the space between the Date and the button
+          ml: 4, // little bit left
+        }}
+      >
         <Button
           variant="contained"
           size="small"
